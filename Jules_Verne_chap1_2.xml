@@ -1,36 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../Teinte/tei2html.xsl"?>
+
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr">
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Le tour du monde en quatre vingt jours</title>
-                <author key="Verne, Jules (1828-1905)">Jules Verne</author>
-            </titleStmt>
-            <editionStmt>
-                <edition>Exercice dans le cadre du cours de Master Edition (Lille III, 2015-2016)</edition>
+                <title>Le tour du monde en 80 jours</title>
+                <author ref="https://catalogue.bnf.fr/ark:/12148/cb11928016k">
+                    <forename>Jules</forename>
+                    <surname>Verne</surname>
+                </author>
                 <respStmt>
-                    <name>Berne, Clotilde</name>
-                    <resp>Informatique éditoriale</resp>
+                    <resp>contrôle de XML TEI du Master TNAH</resp>
+                    <persName>
+                        <forename>Samuel</forename>
+                        <surname>Scalbert</surname>
+                    </persName>
                 </respStmt>
-            </editionStmt>
+            </titleStmt>
             <publicationStmt>
-                <p>Texte libre de droits</p>
+                <publisher>Le Temps</publisher>
+                <pubPlace>
+                    <address>
+                        <country key="FR"/>
+                        <settlement type="city">Paris</settlement>
+                        <postCode>75009</postCode>
+                        <district type="arrondissement">9e</district>
+                        <street> Rue du Faubourg-Montmartre, <num>10</num>
+                        </street>
+                    </address>
+                </pubPlace>
+                <date when="1872-11-06">1872-11-06</date>
+                <distributor facs="https://gallica.bnf.fr/ark:/12148/bpt6k225186k">Gallica
+                    Bibliothèque nationale de France</distributor>
+                <availability>
+                    <licence target="https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica">Domaine public</licence>
+                </availability>
             </publicationStmt>
             <sourceDesc>
-                <bibl>
-                    <ref target="http://www.ebooksgratuits.com/details.php?book=611">http://www.ebooksgratuits.com/details.php?book=611</ref>
-                </bibl>
+                <biblFull>
+                    <titleStmt>
+                        <title>Le tour du monde en 80 jours</title>
+                        <author ref="https://catalogue.bnf.fr/ark:/12148/cb11928016k">
+                            <forename>Jules</forename>
+                            <surname>Verne</surname>
+                        </author>
+                    </titleStmt>
+                    <publicationStmt>
+                        <publisher>Le Temps</publisher>
+                        <pubPlace>
+                            <address>
+                                <country key="FR"/>
+                                <settlement type="city">Paris</settlement>
+                                <postCode>75009</postCode>
+                                <district type="arrondissement">9e</district>
+                                <street> Rue du Faubourg-Montmartre, <num>10</num>
+                                </street>
+                            </address>
+                        </pubPlace>
+                        <date when="1872-11-06">1872-11-06</date>
+                        <distributor facs="https://gallica.bnf.fr/ark:/12148/bpt6k225186k">Gallica
+                            Bibliothèque nationale de France</distributor>
+                        <availability>
+                        <licence target="https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica">Domaine public</licence>
+                        </availability>
+                    </publicationStmt>
+                    <seriesStmt>
+                        <title>Le tour du monde en 80 jours</title>
+                        <biblScope unit="book">Le tour du monde en 80 jours</biblScope>
+                        <biblScope unit="chapter">1 à 2</biblScope>
+                        <biblScope unit="page" from="1" to="2">p. 1-2</biblScope>
+                    </seriesStmt>
+                </biblFull>
             </sourceDesc>
         </fileDesc>
         <profileDesc>
             <creation>
-                <date when="1873"/>
+                <date when-iso="1856">1856</date>
+                <country key="FR">France</country>
+                <lang xml:lang="fr"/>
             </creation>
-            <langUsage>
-                <language ident="fr"/>
-            </langUsage>
+            <settingDesc>
+                <listPlace>
+                    
+                    <place xml:id="Paris" type="city">
+                        <placeName>
+                            <name>Paris</name>
+                            <address>
+                                <country key="FR"/>
+                                <settlement type="city"/>
+                                <postCode>75000</postCode>
+                                <district>none</district>
+                                <street>none</street>
+                            </address>
+                        </placeName>
+                        <note>Capitale de France.</note>
+                    </place>
+                    
+                    <place xml:id="Champs_Élysées" type="avenue">
+                        <placeName>
+                            <name>Avenue des Champs—Élysées</name>
+                            <address>
+                                <country key="FR"/>
+                                <settlement type="city">Paris</settlement>
+                                <postCode>75008</postCode>
+                                <district type="arrondissement">8e</district>
+                                <street>Avenue des Champs—Élysées</street>
+                            </address>
+                        </placeName>
+                        <note>L'avenue des Champs—Élysées, dans le 8e arrondissement de Paris. Fréquentée
+                            par la bourgeoisie parisienne du XIXe siècle.</note>
+                    </place>
+                    
+                    <place xml:id="Morillon" type="domain">
+                        <placeName>
+                            <name>Le Morillon</name>
+                            <address>
+                                <country key="FR"/>
+                                <settlement>none</settlement>
+                                <postCode>none</postCode>
+                                <district>none</district>
+                                <street>none</street>
+                            </address>
+                            <region>Jura</region>
+                        </placeName>
+                        <note>Nom du domaine appartenant à la <persName ref="#famille_Dumirail">famille
+                            Dumirail</persName>, dans lequel <persName ref="#Charles_Delmare">Charles
+                                Delmare</persName> se rend souvent. Situé dans le Jura, c'est un domaine
+                            essentiellement agricole.</note>
+                    </place>
+                    
+                    <place xml:id="Italie" type="country">
+                        <placeName>
+                            <name>Italie</name>
+                            <address>
+                                <country key="IT"/>
+                                <settlement>none</settlement>
+                                <postCode>none</postCode>
+                                <district>none</district>
+                                <street>none</street>
+                            </address>
+                        </placeName>
+                    </place>
+                    
+                </listPlace>
+            </settingDesc>
+            <particDesc>
+                <listPerson>
+                    
+                    <person xml:id="Geneviève" sex="female">
+                        <persName>Geneviève</persName>
+                        <note>Geneviève a plus de soixante ans au début du roman. Elle est la nourrice de
+                            <persName ref="#Charles_Delmare">Charles Delmare</persName> et travaille
+                            dans sa demeure du Jura.</note>
+                    </person>
+                    
+                    <person xml:id="Charles_Delmare" sex="male">
+                        <persName>Charles Delmare</persName>
+                        <note>Charles Delmare a quarante-cinq ans au début du roman. Il possède
+                            l'appartement dans lequel travaille <persName ref="#Geneviève"
+                                >Geneviève</persName>.</note>
+                    </person>
+                    
+                    <person xml:id="père_Delmare" sex="male">
+                        <persName>Le Père Delmare</persName>
+                        <note>Il est le père de <persName ref="#Charles_Delmare">Charles
+                            Delmare</persName>. Son fils lui doit sa fortune.</note>
+                    </person>
+                    
+                    <personGrp xml:id="famille_Dumirail" sex="mixed">
+                        <name>Famille Dumirail</name>
+                        <note>Madame Dumirail a 40 ans, tandis que Monsieur Dumirail en a 60. Ils forment
+                            un couple et possède le <placeName ref="#Morillon">Morillon</placeName> où se
+                            rend souvent <persName ref="#Charles_Delmare">Charles
+                                Delmare</persName>.</note>
+                    </personGrp>
+                    
+                </listPerson>
+            </particDesc>
         </profileDesc>
+        <encodingDesc>
+            <p>Cet encodage a été réalisé à partir de la numérisation disponible sur Gallica du
+                roman-feuilleton Les Fils de Famille, écrit par Eugène Sue en 1856, et édité par la
+                librairie Michel Lévy Frères en 1862. Le texte a été transcrit fidèlement, à l'exception
+                des césures de fin de ligne propres à l'édition, qui ont été transformées en un seul
+                mot, ainsi que de l'en-tête de chaque page et de la structure typographique, cette
+                dernière n'étant pas comprise dans ce projet d'encodage.</p>
+        </encodingDesc>
     </teiHeader>
     <text>
         <body>
