@@ -1,0 +1,12 @@
+place name :
+
+	#Maison de Phileas Fogg
+		la maison portant le numéro 7 de Saville-row, Burlington Gardens
+	#Angleterre
+	#Londres
+	 reform-Club
+
+persname :
+	#Phileas Fogg
+	 MM. Baring frères
+	#

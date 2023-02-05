@@ -61,7 +61,7 @@
                         <distributor facs="https://gallica.bnf.fr/ark:/12148/bpt6k225186k">Gallica
                             Bibliothèque nationale de France</distributor>
                         <availability>
-                        <licence target="https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica">Domaine public</licence>
+                            <licence target="https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica">Domaine public</licence>
                         </availability>
                     </publicationStmt>
                     <seriesStmt>
@@ -75,13 +75,12 @@
         </fileDesc>
         <profileDesc>
             <creation>
-                <date when-iso="1856">1856</date>
+                <date when="1872-11-06">1872-11-06</date>
                 <country key="FR">France</country>
                 <lang xml:lang="fr"/>
             </creation>
             <settingDesc>
                 <listPlace>
-                    
                     <place xml:id="Paris" type="city">
                         <placeName>
                             <name>Paris</name>
@@ -109,24 +108,6 @@
                         </placeName>
                         <note>L'avenue des Champs—Élysées, dans le 8e arrondissement de Paris. Fréquentée
                             par la bourgeoisie parisienne du XIXe siècle.</note>
-                    </place>
-                    
-                    <place xml:id="Morillon" type="domain">
-                        <placeName>
-                            <name>Le Morillon</name>
-                            <address>
-                                <country key="FR"/>
-                                <settlement>none</settlement>
-                                <postCode>none</postCode>
-                                <district>none</district>
-                                <street>none</street>
-                            </address>
-                            <region>Jura</region>
-                        </placeName>
-                        <note>Nom du domaine appartenant à la <persName ref="#famille_Dumirail">famille
-                            Dumirail</persName>, dans lequel <persName ref="#Charles_Delmare">Charles
-                                Delmare</persName> se rend souvent. Situé dans le Jura, c'est un domaine
-                            essentiellement agricole.</note>
                     </place>
                     
                     <place xml:id="Italie" type="country">
@@ -202,7 +183,7 @@
                 <p>En somme, rien de moins communicatif que ce gentleman. Il parlait aussi peu que possible, et semblait d’autant plus mystérieux qu’il était silencieux. Cependant sa vie était à jour, mais ce qu’il faisait était si mathématiquement toujours la même chose, que l’imagination, mécontente, cherchait au-delà.</p> 
                 <p>Avait-il voyagé ? C’était probable, car personne ne possédait mieux que lui la carte du monde. Il n’était endroit si reculé dont il ne parût avoir une connaissance spéciale. Quelquefois, mais en peu de mots, brefs et clairs, il redressait les mille propos qui circulaient dans le club au sujet des voyageurs perdus ou égarés ; il indiquait les vraies probabilités, et ses paroles s’étaient trouvées souvent comme inspirées par une seconde vue, tant l’événement finissait toujours par les justifier. C’était un homme qui avait dû voyager partout, – en esprit, tout au moins.</p> 
                 <p>Ce qui était certain toutefois, c’est que, depuis de longues années, <persName ref="#Phileas Fogg">Phileas Fogg</persName> n’avait pas quitté Londres. Ceux qui avaient l’honneur de le connaître un peu plus que les autres attestaient que – si ce n’est sur ce chemin direct qu’il parcourait chaque jour pour venir de sa maison au club – personne ne pouvait prétendre l’avoir jamais vu ailleurs. Son seul passe-temps était de lire les journaux et de jouer au whist. À ce jeu du silence, si bien approprié à sa nature, il gagnait souvent, mais ses gains n’entraient jamais dans sa bourse et figuraient pour une somme importante à son budget de charité. D’ailleurs, il faut le remarquer, Mr. Fogg jouait évidemment pour jouer, non pour gagner. Le jeu était pour lui un combat, une lutte contre une difficulté, mais une lutte sans mouvement, sans déplacement, sans fatigue, et cela allait à son caractère.</p> 
-                <p>On ne connaissait à <persName ref="#Phileas Fogg">Phileas Fogg</persName> ni femme ni enfants, – ce qui peut arriver aux gens les plus honnêtes, – ni parents ni amis, – ce qui est plus rare en vérité. <persName ref="#Phileas Fogg">Phileas Fogg</persName> vivait seul dans sa <placeName ref="#Maison de Phileas Fogg">maison de Saville-row</placeName>, où personne ne pénétrait. De son intérieur, jamais il n’était question. Un seul domestique suffisait à le servir. Déjeunant, dînant au club à des heures chronométriquement déterminées, dans la même salle, à la même table, ne traitant point ses collègues, n’invitant aucun étranger, il ne rentrait chez lui que pour se coucher, à minuit précis, sans jamais user de ces chambres confortables que le Reform-Club tient à la disposition des membres du cercle. Sur vingt-quatre heures, il en passait dix à son domicile, soit qu’il dormît, soit qu’il s’occupât de sa toilette. S’il se promenait, c’était invariablement, d’un pas égal, dans la salle d’entrée parquetée en marqueterie, ou sur la galerie circulaire, au-dessus de laquelle s’arrondit un dôme à vitraux bleus, que supportent vingt colonnes ioniques en porphyre rouge. S’il dînait ou déjeunait, c’étaient les cuisines, le garde-manger, l’office, la poissonnerie, la laiterie du club, qui fournissaient à sa table leurs succulentes réserves ; c’étaient les domestiques du club, graves personnages en habit noir, chaussés de souliers à semelles de molleton, qui le servaient dans une porcelaine spéciale et sur un admirable linge en toile de Saxe ; c’étaient les cristaux à moule perdu du club qui contenaient son sherry, son porto ou son claret mélangé de cannelle, de capillaire et de cinnamome ; c’était enfin la glace du club – glace venue à grands frais des lacs d’Amérique – qui entretenait ses boissons dans un satisfaisant état de fraîcheur.</p> 
+                <p>On ne connaissait à <persName ref="#Phileas Fogg">Phileas Fogg</persName> ni femme ni enfants, – ce qui peut arriver aux gens les plus honnêtes, – ni parents ni amis, – ce qui est plus rare en vérité. <persName ref="#Phileas Fogg">Phileas Fogg</persName> vivait seul dans sa <placeName ref="#Maison de Phileas Fogg">maison de Saville-row</placeName>, où personne ne pénétrait. De son intérieur, jamais il n’était question. Un seul domestique suffisait à le servir. Déjeunant, dînant au club à des heures chronométriquement déterminées, dans la même salle, à la même table, ne traitant point ses collègues, n’invitant aucun étranger, il ne rentrait chez lui que pour se coucher, à minuit précis, sans jamais user de ces chambres confortables que le Reform-Club tient à la disposition des membres du cercle. Sur vingt-quatre heures, il en passait dix à son <placeName ref="#Maison de Phileas Fogg">domicile</placeName>, soit qu’il dormît, soit qu’il s’occupât de sa toilette. S’il se promenait, c’était invariablement, d’un pas égal, dans la salle d’entrée parquetée en marqueterie, ou sur la galerie circulaire, au-dessus de laquelle s’arrondit un dôme à vitraux bleus, que supportent vingt colonnes ioniques en porphyre rouge. S’il dînait ou déjeunait, c’étaient les cuisines, le garde-manger, l’office, la poissonnerie, la laiterie du club, qui fournissaient à sa table leurs succulentes réserves ; c’étaient les domestiques du club, graves personnages en habit noir, chaussés de souliers à semelles de molleton, qui le servaient dans une porcelaine spéciale et sur un admirable linge en toile de Saxe ; c’étaient les cristaux à moule perdu du club qui contenaient son sherry, son porto ou son claret mélangé de cannelle, de capillaire et de cinnamome ; c’était enfin la glace du club – glace venue à grands frais des lacs d’Amérique – qui entretenait ses boissons dans un satisfaisant état de fraîcheur.</p> 
                 <p>Si vivre dans ces conditions, c’est être un excentrique, il faut convenir que l’excentricité a du bon !</p> 
                 <p>La <placeName ref="#Maison de Phileas Fogg">maison de Saville-row</placeName>, sans être somptueuse, se recommandait par un extrême confort. D’ailleurs, avec les habitudes invariables du locataire, le service s’y réduisait à peu. Toutefois, <persName ref="#Phileas Fogg">Phileas Fogg</persName> exigeait de son unique domestique une ponctualité, une régularité extraordinaires. Ce jour-là même, 2 octobre, <persName ref="#Phileas Fogg">Phileas Fogg</persName> avait donné son congé à James Forster – ce garçon s’étant rendu coupable de lui avoir apporté pour sa barbe de l’eau à quatre-vingt-quatre degrés Fahrenheit au lieu de quatre-vingt-six –, et il attendait son successeur, qui devait se présenter entre onze heures et onze heures et demie.</p> 
                 <p><persName ref="#Phileas Fogg">Phileas Fogg</persName>, carrément assis dans son fauteuil, les deux pieds rapprochés comme ceux d’un soldat à la parade, les mains appuyées sur les genoux, le corps droit, la tête haute, regardait marcher l’aiguille de la pendule, – appareil compliqué qui indiquait les heures, les minutes, les secondes, les jours, les quantièmes et l’année. À onze heures et demie sonnant, Mr. Fogg devait, suivant sa quotidienne habitude, quitter la maison et se rendre au Reform-Club.</p> 
