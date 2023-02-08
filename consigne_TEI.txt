@@ -26,3 +26,17 @@ Faire un index des noms de personnages et de lieux ;
 Compléter le teiHeader ;
 Écrire l’ODD la plus restrictive possible en fonction de votre encodage ;
 Ajouter dans votre ODD la documentation sur votre projet d’encodage, les éléments que vous avez encodés : pourquoi et comment, et quels pourront être à terme les usages de votre édition.
+
+Votre ODD doit contenir au moins :
+● Une introduction de votre projet et ses
+exploitations possibles
+● Une explication du fonctionnement de votre
+encodage et choix de balises
+● Une règle contraignant l’usage d’un attribut et
+sa ou ses valeurs
+● Une règle contraignant l’enchaînement de
+certains éléments
+● Une règle contraignant la valeur d’un attribut
+ou l’usage d’un élément ou d’un attribut en
+fonction de son environnement (une règle
+Schematron avec <s:rule>)
