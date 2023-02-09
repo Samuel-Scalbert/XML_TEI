@@ -3,19 +3,113 @@
    <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title type="short">oddbyexample</title>
-            <title>ODD by Example customization</title>
+            <title type="main">Guide d'encodage - Jules Verne "Le tour du monde en 80 jours" (Chap 1-2)</title>
+            <title type="sub">ODD by Example customization</title>
          </titleStmt>
          <publicationStmt>
-            <p>Unpublished first draft </p>
+            <p>Edition encodé par Samuel Scalbert</p>
          </publicationStmt>
          <sourceDesc>
-            <p>Derived from <ref target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">base odd</ref> after an analysis of 1 files in file:/C:/Users/samsc/OneDrive/Bureau/XML_TEI/</p>
+            <p>ODD by Example customization</p>
          </sourceDesc>
       </fileDesc>
    </teiHeader>
    <text>
       <body>
+         <div1>
+            <head>Guide d'encodage du roman-feuilleton <emph rend="italic">Le tour du monde en 80 jours</emph>, publié pour la première fois le 6 novembre 1872 dans le feuilleton du journal Le Temps.</head>
+            <p>Cette documentation a pour but d'expliquer comment j'ai encodé le texte de Jules Verne.</p>
+            <p>Le roman raconte la course autour du monde d'un gentleman anglais, Phileas Fogg, qui a fait le pari d'y parvenir en quatre-vingts jours. Il est accompagné par Jean Passepartout, son fidèle domestique français. L'encodage a été pensé pour permettre de mieux comprendre :<list>
+               <item>la structure du texte</item>
+               <item>la mention des heures et plus généralement du temp</item>
+               <item>les mentions de lieux</item>
+               <item>les relation entre les personnages</item></list>
+               L'objectif de l'encodage est de mettre en avant les éléments les plus importants du pari: donc le temp passé/restant et les lieux atteint.</p>
+            <p>Les données sont normalisé pour permettre la réexploitation de cet encodage</p>
+            <p>Ce schéma se concentre sur l'encodage du contenu littéraire du roman. Les éléments typographiques de l'édition ont donc été volontairement omis.</p>
+         <div2>
+            <head>Le teiHeader</head>
+            <div3>
+               <head>Les référentiels extérieurs</head>
+               <p>La balise <gi>author</gi>, à l'intérieur du <gi>titleStmt</gi>, peut 
+                  prendre un attribut <att>ref</att>, dans lequel est attendu, par exemple, un
+                  URL renvoyant à une notice d'autorité. Le seul référent extérieur ne suffit
+                  cependant pas, et il sera nécessaire d'indiquer, au sein de la balise
+                  <gi>auteur</gi>, le prénom et le nom de l'auteur·ice, à l'aide des
+                  balises <gi>forename</gi> et <gi>surname</gi>.</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <titleStmt>
+                     <title>Le tour du monde en 80 jours</title>
+                        <author ref="https://catalogue.bnf.fr/ark:/12148/cb11928016k">
+                           <forename>Jules</forename>
+                           <surname>Verne</surname>
+                        </author>
+                  </titleStmt>
+               </egXML>
+               <p>La valeur d'attribut <att>ref</att> renvoit à la notice de la
+                  BnF concernant Jules Vernes.</p>
+               <p>Si l'encodage est réalisé à partir d'une numérisation en ligne, il est
+                  nécessaire d'indiquer où se trouve cette numérisation dans la balise
+                  <gi>distributor</gi> présente dans la balise <gi>publicationStmt</gi>,
+                  grâce à l'attribut <att>facs</att>. Cela permettra de mettre en relation
+                  l'encodage avec le document source.</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <distributor facs="https://gallica.bnf.fr/ark:/12148/bpt6k225186k">Gallica
+                     Bibliothèque nationale de France</distributor>
+               </egXML>
+            </div3>
+            <div3>
+               <head>Index de lieux</head>
+               <p>Un <gi>settingDesc</gi> recevra l'index des noms de lieux présents dans le
+                  texte.</p>
+               <p>L'index des lieux comprend les balises: <gi>address</gi> à l'intérieur de <gi>pubPlace</gi>, elle-même à
+                  l'intérieur de <gi>publicationStmt</gi>, puis les balises suivantes :
+                     <gi>country</gi>, <gi>settlement</gi>, <gi>postCode</gi>, <gi>district</gi>, <gi>street</gi>.
+               </p>
+               <p>L'index des noms de lieux est très important pour notre encodage et donc nécessite une attention particulière.</p>
+                  <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                     <pubPlace>
+                        <address>
+                           <country key="FR"/>
+                           <settlement type="city">Paris</settlement>
+                           <postCode>75009</postCode>
+                           <district type="arrondissement">9e</district>
+                           <street> Rue du Faubourg-Montmartre, <num>10</num>
+                           </street>
+                        </address>
+                     </pubPlace>
+                  </egXML>
+            </div3>
+            <div3>
+               <head>Index de personnage</head>
+               <p> Un <gi>particDesc</gi> recevra l'index des noms de personnages
+                  présents dans le texte.</p>
+               <p>L'index des personnage utilise les balises <gi>personn</gi>possédant un attribut <att>xml:id</att> obligatoire
+                  afin de pouvoir identifier dans l'encodage le personnage en question. La balise
+                  <gi>persName</gi> servira à nommer le personnage. Ensuite, une balise
+                  <gi>note</gi> est envisageable, mais non obligatoire. Elle servira à
+                  renseigner des notes brèves sur le personnage en question. </p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <person xml:id="Phileas_Fogg" sex="male">
+                     <persName>Phileas Fogg</persName>
+                     <note>Phileas Fogg est le personnage central du Tour du monde, il a fait le pari d'y parvenir en 80 jours. Il est le maître de Jean Passepartout et James Forster.</note>
+                  </person>
+               </egXML>
+            </div3>
+         </div2>
+         <div2>
+            <head>Le texte</head>
+            <p>L'encodage du texte comprend 5 balises importante à notre édition: <list>
+               <item><gi>persName</gi></item>
+               <item><gi>placeName</gi></item>
+               <item><gi>said</gi></item>
+               <item><gi>time</gi></item>
+               <item><gi>date</gi></item>
+            </list></p>
+            
+         </div2>
+         <div2>
+            <head>Documentation</head>
          <schemaSpec ident="oddbyexample" start="TEI ">
             <moduleRef key="tei"/>
             <!--Checking module textcrit-->
@@ -535,6 +629,8 @@
                </attList>
             </elementSpec>
          </schemaSpec>
+            </div2>
+         </div1>
       </body>
    </text>
 </TEI>
