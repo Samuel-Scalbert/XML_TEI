@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+   xmlns:s="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -100,13 +101,64 @@
          <div2>
             <head>Le texte</head>
             <p>L'encodage du texte comprend 5 balises importante à notre édition: <list>
-               <item><gi>persName</gi></item>
+               <item><gi>persName</gi></item> 
                <item><gi>placeName</gi></item>
                <item><gi>said</gi></item>
                <item><gi>time</gi></item>
                <item><gi>date</gi></item>
             </list></p>
-            
+            <div3>
+               <head><gi>persName</gi></head>
+               <p>Lorsqu'un nom de personnage apparait dans le corps du texte de l'oeuvre, il
+                  devra être signalé par une balise <gi>persName</gi>. Afin de donner un sens
+                  à ce balisage, un attribut <att>ref</att> renverra obligatoirement à un
+                  pointeur, défini dans l'index des noms de personnage.</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <persName ref="#Jean_Passepartout">Phileas Fogg</persName>
+               </egXML>
+            </div3>
+            <div3>
+               <head><gi>placeName</gi></head>
+               <p>Lorsqu'un nom d'un lieu apparait dans le corps du texte de l'oeuvre, il
+               devra être signalé par une balise <gi>placeName</gi>. Afin de donner un sens
+               à ce balisage, un attribut <att>ref</att> renverra obligatoirement à un
+               pointeur, défini dans l'index des noms de lieux.</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <placeName ref="#Reform_Club"> Reform-Club</placeName>
+               </egXML>
+            </div3>
+            <div3>
+               <head><gi>said</gi></head>
+               <p>Pour les dialogues dans le corps du texte, la balise <gi>said</gi> doit 
+                  être utilisée. Elle prendra en attribut <att>who</att> pour pointer le 
+                  locateur (avec les ID de personnages), <gi>direct</gi> indiquera
+                  si le discour est direct ou indirect avec une valeur boolkéenne,
+                  <gi>aloud</gi> pour diférencier les dialogues et les pensées,<gi>toWhom</gi> indiquera la personne à qui le discour s'adresse (avec les ID de persName).</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                  <said who="#James_Forster" direct="true" aloud="true" toWhom="#Phileas_Fogg">« Le nouveau <persName ref="#Jean_Passepartout">domestique</persName> », dit-il.</said>
+               </egXML>
+            </div3>
+            <div3>
+               <head><gi>time</gi></head>
+               <p>Dès le chapitre 1 Jules Verne introduit la notion de temp dans son texte,
+                  c'est même le sujet de la première interaction entre les personnages principaux.
+                  Il est crucial de tenir compte du passage du temps dans ce récit basé sur
+                  un pari de faire le tour du monde en 80 jours. La balise <gi>time</gi> prend 
+                  un attribut <att>when</att> qui nous permet de normaliser les mentions 
+                  d'heures dans le texte.</p>
+               <egXML xmlns="http://www.tei-c.org/ns/Examples">
+               <time when="11:22:00">Onze heures vingt-deux</time>
+               </egXML>
+            </div3>
+            <div3>
+            <head><gi>date</gi></head>
+            <p>Les dates aussi sont importantes pour notre édition, on utilisera l'attribut
+               <att>when</att> pour nous permettre de normaliser les mentions 
+               de dates dans le texte avec le format <val>(YYYY-MM-DD)</val>.</p>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+               <date when="1872-10-02">2 octobre 1872</date>
+            </egXML>
+            </div3>
          </div2>
          <div2>
             <head>Documentation</head>
@@ -130,12 +182,54 @@
             <classRef key="model.persNamePart"/>
             <moduleRef key="namesdates"
                        include="persName surname forename placeName country settlement district listPerson listPlace person place"/>
+            <!--2 règles pour forcer les attibuts #ref pour les balises placeName et persName-->
             <elementSpec ident="persName" mode="change">
+               <constraintSpec scheme="schematron" ident="refRequired">
+                  <constraint>
+                     <s:rule context="tei:body/tei:persName">
+                        <s:assert test="@ref">L'attribut @ref doit être renseignée</s:assert>
+                     </s:rule>
+                     <s:rule context="tei:persName[@ref]">
+                        <s:assert test="matches(@ref, '^#+')"> les attributs doivent commencer par '#' </s:assert><!-- les @ref doivent commencer par # -->
+                     </s:rule>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+            <elementSpec ident="placeName" mode="change">
+               <constraintSpec scheme="schematron" ident="refRequired">
+                  <constraint>
+                     <s:rule context="tei:body/tei:placeName">
+                        <s:assert test="@ref">L'attribut @ref doit être renseigné</s:assert>
+                     </s:rule>
+                     <s:rule context="tei:persName[@ref]">
+                        <s:assert test="matches(@ref, '^#+')"> les attributs doivent commencer par '#' </s:assert><!-- les @ref doivent commencer par # -->
+                     </s:rule>
+                  </constraint>
+               </constraintSpec>
+            </elementSpec>
+            <!--1 règle pour forcer la valeur de l'attribut @aloud-->
+            <elementSpec ident="said" mode="change">
+               <attList>
+                  <attDef ident="aloud" mode="change" usage="req">
+                     <valList mode="add" type="closed">
+                        <valItem ident="true"/>
+                        <valItem ident="false"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <!--ajout des attributs autorisé-->
+            <elementSpec ident="settlement" mode="change">
                <attList>
                   <attDef ident="facs" mode="delete"/>
-                  <attDef ident="when" mode="delete"/>
                   <attDef ident="key" mode="delete"/>
-                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="city"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="when" mode="delete"/>
                </attList>
             </elementSpec>
             <elementSpec ident="surname" mode="change">
@@ -154,32 +248,11 @@
                   <attDef ident="type" mode="delete"/>
                </attList>
             </elementSpec>
-            <elementSpec ident="placeName" mode="change">
-               <attList>
-                  <attDef ident="when" mode="delete"/>
-                  <attDef ident="facs" mode="delete"/>
-                  <attDef ident="key" mode="delete"/>
-                  <attDef ident="type" mode="delete"/>
-               </attList>
-            </elementSpec>
             <elementSpec ident="country" mode="change">
                <attList>
                   <attDef ident="facs" mode="delete"/>
                   <attDef ident="ref" mode="delete"/>
                   <attDef ident="type" mode="delete"/>
-                  <attDef ident="when" mode="delete"/>
-               </attList>
-            </elementSpec>
-            <elementSpec ident="settlement" mode="change">
-               <attList>
-                  <attDef ident="facs" mode="delete"/>
-                  <attDef ident="key" mode="delete"/>
-                  <attDef ident="ref" mode="delete"/>
-                  <attDef ident="type" mode="change">
-                     <valList mode="add" type="closed">
-                        <valItem ident="city"/>
-                     </valList>
-                  </attDef>
                   <attDef ident="when" mode="delete"/>
                </attList>
             </elementSpec>
@@ -208,7 +281,14 @@
                   <attDef ident="type" mode="delete"/>
                </attList>
             </elementSpec>
+            <!-- une règle forcant à remplir les balises "person" -->
             <elementSpec ident="person" mode="change">
+               <content>
+                  <sequence>
+                     <elementRef key="persName" minOccurs="1" maxOccurs="1"/>
+                     <elementRef key="note" minOccurs="0"/>
+                  </sequence>
+               </content>
                <attList>
                   <attDef ident="role" mode="delete"/>
                   <attDef ident="gender" mode="delete"/>
@@ -413,12 +493,14 @@
             </elementSpec>
             <elementSpec ident="time" mode="change">
                <attList>
+                  <attDef ident="dur-iso" mode="delete"/>
                   <attDef ident="facs" mode="delete"/>
                   <attDef ident="key" mode="delete"/>
                   <attDef ident="ref" mode="delete"/>
                   <attDef ident="type" mode="delete"/>
                </attList>
             </elementSpec>
+            <!-- règle qui oblige les head à être remplies -->
             <elementSpec ident="head" mode="change">
                <attList>
                   <attDef ident="facs" mode="delete"/>
@@ -604,6 +686,7 @@
             <elementSpec ident="body" mode="change">
                <attList>
                   <attDef ident="facs" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
                </attList>
             </elementSpec>
             <elementSpec ident="div" mode="change">
