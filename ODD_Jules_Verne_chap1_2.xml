@@ -10,7 +10,7 @@
             <p>Unpublished first draft </p>
          </publicationStmt>
          <sourceDesc>
-            <p>Derived from <ref target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">base odd</ref> after an analysis of 1 files in file:/C:/Users/samsc/OneDrive/Bureau/XML_TEI/</p>
+            <p>Derived from <ref target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml">base odd</ref> after an analysis of 2 files in file:/C:/Users/samsc/OneDrive/Bureau/XML_TEI/</p>
          </sourceDesc>
       </fileDesc>
    </teiHeader>
@@ -35,7 +35,7 @@
             <!--Checking module namesdates-->
             <classRef key="model.persNamePart"/>
             <moduleRef key="namesdates"
-                       include="persName surname forename placeName country settlement district listPerson listPlace person place"/>
+                       include="persName surname forename placeName country settlement district listPerson listPlace listRelation person place relation"/>
             <elementSpec ident="persName" mode="change">
                <attList>
                   <attDef ident="facs" mode="delete"/>
@@ -114,6 +114,16 @@
                   <attDef ident="type" mode="delete"/>
                </attList>
             </elementSpec>
+            <elementSpec ident="listRelation" mode="change">
+               <attList>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="work"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
             <elementSpec ident="person" mode="change">
                <attList>
                   <attDef ident="role" mode="delete"/>
@@ -131,6 +141,21 @@
                         <valItem ident="city"/>
                      </valList>
                   </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="relation" mode="change">
+               <attList>
+                  <attDef ident="name" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="employer"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="mutual" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="when" mode="delete"/>
+                  <attDef ident="key" mode="delete"/>
+                  <attDef ident="ref" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
                </attList>
             </elementSpec>
             <!--Checking module dictionaries-->
@@ -161,14 +186,108 @@
             <classRef key="att.combinable"/>
             <classRef key="att.identified"/>
             <classRef key="model.contentPart"/>
-            <classSpec ident="att.combinable" type="atts" mode="change">
+            <moduleRef key="tagdocs"
+                       include="classRef moduleRef schemaSpec elementSpec classSpec attList attDef valItem valList"/>
+            <elementSpec ident="classRef" mode="change">
                <attList>
+                  <attDef ident="expand" mode="delete"/>
+                  <attDef ident="include" mode="delete"/>
+                  <attDef ident="except" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="moduleRef" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="except" mode="delete"/>
+                  <attDef ident="url" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="schemaSpec" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="targetLang" mode="delete"/>
+                  <attDef ident="docLang" mode="delete"/>
+                  <attDef ident="defaultExceptions" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
                   <attDef ident="mode" mode="delete"/>
                </attList>
-            </classSpec>
+            </elementSpec>
+            <elementSpec ident="elementSpec" mode="change">
+               <attList>
+                  <attDef ident="prefix" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="classSpec" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="atts"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="generate" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="atts"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="attList" mode="change">
+               <attList>
+                  <attDef ident="org" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="attDef" mode="change">
+               <attList>
+                  <attDef ident="usage" mode="delete"/>
+                  <attDef ident="ns" mode="delete"/>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="change"/>
+                        <valItem ident="delete"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="valItem" mode="change">
+               <attList>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="delete"/>
+               </attList>
+            </elementSpec>
+            <elementSpec ident="valList" mode="change">
+               <attList>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="closed"/>
+                     </valList>
+                  </attDef>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="mode" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="add"/>
+                     </valList>
+                  </attDef>
+               </attList>
+            </elementSpec>
             <classSpec ident="att.identified" type="atts" mode="change">
                <attList>
-                  <attDef ident="ident" mode="delete"/>
                   <attDef ident="predeclare" mode="delete"/>
                   <attDef ident="module" mode="delete"/>
                </attList>
@@ -265,7 +384,7 @@
             </classSpec>
             <!--Checking module core-->
             <moduleRef key="core"
-                       include="p said name address street postCode num date time head note lb author respStmt resp title publisher biblScope pubPlace"/>
+                       include="p said name address street postCode num date time ref head note lb author respStmt resp title publisher biblScope pubPlace"/>
             <elementSpec ident="p" mode="change">
                <attList>
                   <attDef ident="facs" mode="delete"/>
@@ -325,6 +444,12 @@
                   <attDef ident="type" mode="delete"/>
                </attList>
             </elementSpec>
+            <elementSpec ident="ref" mode="change">
+               <attList>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
             <elementSpec ident="head" mode="change">
                <attList>
                   <attDef ident="facs" mode="delete"/>
@@ -369,9 +494,17 @@
             <elementSpec ident="title" mode="change">
                <attList>
                   <attDef ident="level" mode="delete"/>
-                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="short"/>
+                     </valList>
+                  </attDef>
                   <attDef ident="facs" mode="delete"/>
-                  <attDef ident="type" mode="delete"/>
+                  <attDef ident="type" mode="change">
+                     <valList mode="add" type="closed">
+                        <valItem ident="short"/>
+                     </valList>
+                  </attDef>
                   <attDef ident="key" mode="delete"/>
                   <attDef ident="ref" mode="delete"/>
                   <attDef ident="when" mode="delete"/>
@@ -481,6 +614,13 @@
             <!--Checking module transcr-->
             <classRef key="att.global.facs"/>
             <!--Checking module linking-->
+            <moduleRef key="linking" include="standOff"/>
+            <elementSpec ident="standOff" mode="change">
+               <attList>
+                  <attDef ident="facs" mode="delete"/>
+                  <attDef ident="type" mode="delete"/>
+               </attList>
+            </elementSpec>
             <!--Checking module analysis-->
             <classRef key="att.linguistic"/>
             <classSpec ident="att.linguistic" type="atts" mode="change">
